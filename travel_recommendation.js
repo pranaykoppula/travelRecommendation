@@ -1,4 +1,4 @@
-const api_data = fetch("./travel_recommendation_api.json")
+const api_data = await fetch("./travel_recommendation_api.json")
 .then(res => res.json())
 .catch(error => {alert(error);return {}});
 
