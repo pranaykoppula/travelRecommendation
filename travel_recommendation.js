@@ -1,14 +1,14 @@
-var data;
-fetch("./travel_recommendation_api.json")
+const api_data = fetch("./travel_recommendation_api.json")
 .then(res => res.json())
-.then(data => console.log(data))
+.then(json => {return json;})
+.catch(error => {alert(error);return {}});
 
-function render(){
+async function render(){
     const urlParams = new URLSearchParams(window.location.search);
     const keyword=urlParams.get("search");
-    if (keyword.length>0){
-        const resultsEl=document.querySelector("#home-right");
-        
+    if (keyword){
+        data = await api_data;
+        console.log(data);
     }
     const searchButton=document.querySelector("#search-button");
     const searchClear=document.querySelector("#search-clear");
