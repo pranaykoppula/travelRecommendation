@@ -1,19 +1,7 @@
 var data;
-fetch("./travel_recommendation_api.json", { mode: "cors" })
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json(); // Return the parsed JSON data as a Promise
-  })
-  .then((jsonData) => {
-    data = jsonData; // Assign the parsed JSON to the 'data' variable
-    console.log(data); // Access the JSON data here
-  })
-  .catch((error) => {
-    console.error("Fetch error:", error);
-  });
-
+fetch("./travel_recommendation_api.json")
+.then(res => res.json())
+.then(data => console.log(data))
 
 function render(){
     const urlParams = new URLSearchParams(window.location.search);
