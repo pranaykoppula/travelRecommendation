@@ -1,4 +1,4 @@
-const data = fetch("/travel_recommendation_api.json",{"mode":"cors"})
+const data = fetch("travel_recommendation_api.json")
 .then((response) => {
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
