@@ -1,5 +1,4 @@
-function render(data){
-    console.log(data);
+function render(){
     const urlParams = new URLSearchParams(window.location.search);
     const keyword=urlParams.get("search") || "*";
     if (keyword){
