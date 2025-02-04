@@ -1,20 +1,13 @@
-async function fetchData() {
-    try {
-        const res = await fetch("./travel_recommendation_api.json");
-        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        alert("Failed to load data: " + error);
-        return {};
-    }
-}
-
-async function render(data){
+function render(data){
     console.log(data);
     const urlParams = new URLSearchParams(window.location.search);
-    const keyword=urlParams.get("search");
+    const keyword=urlParams.get("search") || "";
     if (keyword){
-        
+        fetch("./travel_recommendation_api.json").then(response => response.json()).then(data => {
+            if (keyword===""){
+                alert("All");
+            }
+        });
     }
     const searchButton=document.querySelector("#search-button");
     const searchClear=document.querySelector("#search-clear");
@@ -44,7 +37,4 @@ async function render(data){
 
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const api_data = await fetchData();
-    render(api_data);
-});
+document.addEventListener("DOMContentLoaded", render);
