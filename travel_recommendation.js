@@ -1,6 +1,6 @@
 function render(){
     const urlParams = new URLSearchParams(window.location.search);
-    const keyword=urlParams.get("search") || "";
+    const keyword=urlParams.get("search") || "*";
     if (keyword){
         fetch("./travel_recommendation_api.json").then(response => response.json()).then(data => {
             if (keyword==="*"){
