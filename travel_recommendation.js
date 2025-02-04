@@ -6,8 +6,9 @@ fetch("./travel_recommendation_api.json",{"mode":"cors"})
   }
 
   data = response.json();
+  console.log(data);
 });
-console.log(data);
+
 
 function render(){
     const urlParams = new URLSearchParams(window.location.search);
