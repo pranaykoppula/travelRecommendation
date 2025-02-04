@@ -10,10 +10,11 @@ async function fetchData() {
 }
 
 async function render(data){
+    console.log(data);
     const urlParams = new URLSearchParams(window.location.search);
     const keyword=urlParams.get("search");
     if (keyword){
-        console.log(data);
+        
     }
     const searchButton=document.querySelector("#search-button");
     const searchClear=document.querySelector("#search-clear");
