@@ -1,10 +1,11 @@
-const data = fetch("./travel_recommendation_api.json")
+var data;
+fetch("./travel_recommendation_api.json",{"mode":"cors"})
 .then((response) => {
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
 
-  return response.blob();
+  data = response.json();
 });
 console.log(data);
 
