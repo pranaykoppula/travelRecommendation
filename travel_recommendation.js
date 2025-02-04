@@ -32,7 +32,7 @@ function render(data){
         form.reset();
     });}
     catch (error){
-        alert(error);
+        console.log(error);
     }
 
 }
