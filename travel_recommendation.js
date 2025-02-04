@@ -1,6 +1,5 @@
 const api_data = fetch("./travel_recommendation_api.json")
 .then(res => res.json())
-.then(json => {return json;})
 .catch(error => {alert(error);return {}});
 
 async function render(){
