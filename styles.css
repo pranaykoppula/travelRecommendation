@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent full-page overflow issues */
+}
 body{
     margin: 0%;
     background-image: url(assets/background.jpg);
@@ -154,5 +158,36 @@ textarea{
 }
 
 #resultsList{
-    overflow: scroll;
+    height: 70vh;
+    overflow: auto;
+    scroll-behavior: smooth;
 }
+
+#ctaMessage{
+    background-color: black;
+    color: wheat;
+    opacity: 50%;
+    width: max-content;
+    padding: 3%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: darkslategray;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: darkslateblue;
+    border-radius: 10px;
+  }

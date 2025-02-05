@@ -8,6 +8,11 @@ const createLocaleMap = (locale) =>
 function render(){
     const urlParams = new URLSearchParams(window.location.search);
     const keyword=urlParams.get("search") || "";
+    const cta=document.querySelector("#cta");
+    cta.addEventListener("click",(e)=>{
+        e.preventDefault();
+        window.location.assign('index.html?search=all');
+    });
     if (keyword){
         fetch("./travel_recommendation_api.json").then(response => response.json()).then(data => {
             const destinations = [];
@@ -15,9 +20,9 @@ function render(){
             const templeMaps = data.temples.map(createLocaleMap);
             const beachMaps = data.beaches.map(createLocaleMap);
 
-            if (keyword==="*"){
+            if (keyword==="all"){
                 // Combining all maps into a single array
-            const allLocales = [...countryMaps, ...cityMaps, ...templeMaps, ...beachMaps];
+            const allLocales = [...cityMaps, ...templeMaps, ...beachMaps];
             destinations.push(...allLocales);                                
             }
             else if (keyword==="beach"||keyword==="beaches"){
@@ -58,6 +63,14 @@ function render(){
                     resultsList.append(localeDiv);
                 });
                 searchSection.appendChild(resultsList);
+                if (keyword==="all"){
+                    const homeLeft = document.querySelector("#home-left");
+                    const ctaMessage = document.createElement("p");
+                    ctaMessage.textContent="Visit one of these destinations!";
+                    ctaMessage.id="ctaMessage";
+                    ctaMessage.className="hero-sub";
+                    homeLeft.appendChild(ctaMessage);
+                }
             }
         });
     }
