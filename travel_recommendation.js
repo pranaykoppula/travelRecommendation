@@ -45,9 +45,16 @@ function render(){
                     localeImg.src=locale.get("imageUrl");
                     const localeDesc = document.createElement("p");
                     localeDesc.textContent=locale.get("description");
+                    const bookLocale = document.createElement("button");
+                    bookLocale.textContent="Visit";
+                    bookLocale.addEventListener("click",(e)=>{
+                        e.preventDefault();
+                        alert("Reservation complete!");
+                    });
                     localeDiv.appendChild(localName);
                     localeDiv.appendChild(localeImg);
                     localeDiv.appendChild(localeDesc);
+                    localeDiv.appendChild(bookLocale);
                     resultsList.append(localeDiv);
                 });
                 searchSection.appendChild(resultsList);
