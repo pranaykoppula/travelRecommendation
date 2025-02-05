@@ -11,7 +11,7 @@ function render(){
     const cta=document.querySelector("#cta");
     cta.addEventListener("click",(e)=>{
         e.preventDefault();
-        window.location.assign('index.html?search=all');
+        window.location.assign('/index.html?search=all');
     });
     if (keyword){
         fetch("./travel_recommendation_api.json").then(response => response.json()).then(data => {
@@ -82,12 +82,12 @@ function render(){
         const searchTerm=searchInput.value.trim().toLowerCase();
         if (searchTerm.length>0){
         searchInput.value="";
-        window.location.assign(`index.html?search=${searchTerm}`);}
+        window.location.assign(`/index.html?search=${searchTerm}`);}
     });
     searchClear.addEventListener("click",(e)=>{
         e.preventDefault();
         searchInput.value="";
-        window.location.assign("index.html");
+        window.location.assign("/index.html");
     });
     try{
     const form = document.getElementsByTagName("form")[0];

@@ -106,6 +106,7 @@ textarea{
 }
 
 #aboutUsPage{
+    display: block;
     margin: 0% 5% 0% 5%;
 }
 #aboutDescription,#members{
