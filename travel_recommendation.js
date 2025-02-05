@@ -62,12 +62,12 @@ function render(){
         const searchTerm=searchInput.value.trim().toLowerCase();
         if (searchTerm.length>0){
         searchInput.value="";
-        window.location.assign(`travel_recommendation.html?search=${searchTerm}`);}
+        window.location.assign(`index.html?search=${searchTerm}`);}
     });
     searchClear.addEventListener("click",(e)=>{
         e.preventDefault();
         searchInput.value="";
-        window.location.assign("travel_recommendation.html");
+        window.location.assign("index.html");
     });
     try{
     const form = document.getElementsByTagName("form")[0];
